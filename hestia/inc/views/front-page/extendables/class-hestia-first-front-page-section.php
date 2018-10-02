@@ -75,7 +75,7 @@ class Hestia_First_Front_Page_Section extends Hestia_Abstract_Main {
 	 * Utility to check if we should display parallax.
 	 */
 	public static function should_display_parallax() {
-		$hestia_big_title_type = get_theme_mod( 'hestia_slider_type', 'image' );
+		$hestia_big_title_type = get_theme_mod( 'hestia_slider_type', apply_filters( 'hestia_slider_type_default', 'image' ) );
 		if ( empty( $hestia_big_title_type ) || $hestia_big_title_type !== 'parallax' ) {
 			return false;
 		}

@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Hestia Pro 2.0.3\n"
+"Project-Id-Version: Hestia Pro 2.0.5\n"
 "Report-Msgid-Bugs-To: https://github.com/Codeinwp/hestia-pro/issues\n"
-"POT-Creation-Date: 2018-09-11 12:50:01+00:00\n"
+"POT-Creation-Date: 2018-09-28 16:23:05+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1050,20 +1050,20 @@ msgstr ""
 #: inc/addons/customizer/general/class-hestia-footer-controls-addon.php:123
 #: inc/addons/customizer/general/class-hestia-header-controls-addon.php:183
 #: inc/admin/individual-page-settings/class-hestia-page-settings.php:42
-#: inc/customizer/general/class-hestia-general-controls.php:191
+#: inc/customizer/general/class-hestia-general-controls.php:192
 msgid "Left Sidebar"
 msgstr ""
 
 #: inc/addons/customizer/general/class-hestia-footer-controls-addon.php:127
 #: inc/admin/individual-page-settings/class-hestia-page-settings.php:38
-#: inc/customizer/general/class-hestia-general-controls.php:187
+#: inc/customizer/general/class-hestia-general-controls.php:188
 msgid "Full Width"
 msgstr ""
 
 #: inc/addons/customizer/general/class-hestia-footer-controls-addon.php:131
 #: inc/addons/customizer/general/class-hestia-header-controls-addon.php:187
 #: inc/admin/individual-page-settings/class-hestia-page-settings.php:46
-#: inc/customizer/general/class-hestia-general-controls.php:195
+#: inc/customizer/general/class-hestia-general-controls.php:196
 msgid "Right Sidebar"
 msgstr ""
 
@@ -1292,12 +1292,12 @@ msgstr ""
 msgid "View cart"
 msgstr ""
 
-#: inc/admin/about-page/class-hestia-about-page.php:595
+#: inc/admin/about-page/class-hestia-about-page.php:597
 msgid "Activating"
 msgstr ""
 
 #: inc/admin/class-hestia-admin-notices-manager.php:39
-#: inc/customizer/general/class-hestia-upsell-manager.php:116
+#: inc/customizer/general/class-hestia-upsell-manager.php:119
 #. translators: Upsell to get the pro version
 #. translators: %s Required action
 msgid "Hestia front-page is not multi-language compatible, for this feature %s."
@@ -1305,9 +1305,9 @@ msgstr ""
 
 #: inc/admin/class-hestia-admin-notices-manager.php:39
 #: inc/admin/onboarding/includes/class-themeisle-ob-admin.php:123
-#: inc/customizer/general/class-hestia-upsell-manager.php:73
-#: inc/customizer/general/class-hestia-upsell-manager.php:116
+#: inc/customizer/general/class-hestia-upsell-manager.php:76
 #: inc/customizer/general/class-hestia-upsell-manager.php:119
+#: inc/customizer/general/class-hestia-upsell-manager.php:122
 msgid "Get the PRO version!"
 msgstr ""
 
@@ -1601,7 +1601,7 @@ msgstr ""
 
 #: inc/core/class-hestia-admin.php:164
 #: inc/customizer/class-hestia-customizer-main.php:56
-#: inc/customizer/general/class-hestia-general-controls.php:169
+#: inc/customizer/general/class-hestia-general-controls.php:170
 #: inc/customizer/general/class-hestia-typography-controls.php:216
 msgid "Frontpage Sections"
 msgstr ""
@@ -1619,13 +1619,13 @@ msgid "You can use any background image you want."
 msgstr ""
 
 #: inc/core/class-hestia-admin.php:176
-#: inc/customizer/general/class-hestia-upsell-manager.php:60
-#: inc/customizer/general/class-hestia-upsell-manager.php:109
+#: inc/customizer/general/class-hestia-upsell-manager.php:63
+#: inc/customizer/general/class-hestia-upsell-manager.php:112
 msgid "Section Reordering"
 msgstr ""
 
 #: inc/core/class-hestia-admin.php:177
-#: inc/customizer/general/class-hestia-upsell-manager.php:69
+#: inc/customizer/general/class-hestia-upsell-manager.php:72
 msgid "The ability to reorganize your Frontpage Sections more easily and quickly."
 msgstr ""
 
@@ -1640,59 +1640,59 @@ msgid ""
 msgstr ""
 
 #: inc/core/class-hestia-admin.php:188
-#: inc/customizer/general/class-hestia-upsell-manager.php:56
+#: inc/customizer/general/class-hestia-upsell-manager.php:59
 msgid "Header Slider"
 msgstr ""
 
 #: inc/core/class-hestia-admin.php:189
-#: inc/customizer/general/class-hestia-upsell-manager.php:64
+#: inc/customizer/general/class-hestia-upsell-manager.php:67
 msgid ""
 "You will be able to add more content to your site header with an awesome "
 "slider."
 msgstr ""
 
 #: inc/core/class-hestia-admin.php:194
-#: inc/customizer/general/class-hestia-upsell-manager.php:57
+#: inc/customizer/general/class-hestia-upsell-manager.php:60
 msgid "Fully Customizable Colors"
 msgstr ""
 
 #: inc/core/class-hestia-admin.php:195
-#: inc/customizer/general/class-hestia-upsell-manager.php:65
+#: inc/customizer/general/class-hestia-upsell-manager.php:68
 msgid "Change colors for the header overlay, header text and navbar."
 msgstr ""
 
 #: inc/core/class-hestia-admin.php:200
 #: inc/customizer/controls/ui/helper-plugin-install/class-hestia-plugin-install-helper.php:130
-#: inc/customizer/general/class-hestia-upsell-manager.php:58
-#: inc/customizer/general/class-hestia-upsell-manager.php:107
+#: inc/customizer/general/class-hestia-upsell-manager.php:61
+#: inc/customizer/general/class-hestia-upsell-manager.php:110
 msgid "Jetpack Portfolio"
 msgstr ""
 
 #: inc/core/class-hestia-admin.php:201
-#: inc/customizer/general/class-hestia-upsell-manager.php:66
-#: inc/customizer/general/class-hestia-upsell-manager.php:102
+#: inc/customizer/general/class-hestia-upsell-manager.php:69
+#: inc/customizer/general/class-hestia-upsell-manager.php:105
 msgid "Portfolio section with two possible layouts."
 msgstr ""
 
 #: inc/core/class-hestia-admin.php:206
-#: inc/customizer/general/class-hestia-upsell-manager.php:59
-#: inc/customizer/general/class-hestia-upsell-manager.php:108
+#: inc/customizer/general/class-hestia-upsell-manager.php:62
+#: inc/customizer/general/class-hestia-upsell-manager.php:111
 msgid "Pricing Plans Section"
 msgstr ""
 
 #: inc/core/class-hestia-admin.php:207
-#: inc/customizer/general/class-hestia-upsell-manager.php:67
-#: inc/customizer/general/class-hestia-upsell-manager.php:103
+#: inc/customizer/general/class-hestia-upsell-manager.php:70
+#: inc/customizer/general/class-hestia-upsell-manager.php:106
 msgid "A fully customizable pricing plans section."
 msgstr ""
 
 #: inc/core/class-hestia-admin.php:212
-#: inc/customizer/general/class-hestia-upsell-manager.php:61
+#: inc/customizer/general/class-hestia-upsell-manager.php:64
 msgid "Quality Support"
 msgstr ""
 
 #: inc/core/class-hestia-admin.php:213
-#: inc/customizer/general/class-hestia-upsell-manager.php:70
+#: inc/customizer/general/class-hestia-upsell-manager.php:73
 msgid "24/7 HelpDesk Professional Support"
 msgstr ""
 
@@ -1803,7 +1803,7 @@ msgid ""
 msgstr ""
 
 #: inc/customizer/controls/custom-controls/customizer-page-editor/class-hestia-page-editor.php:65
-#: inc/customizer/front-page/class-hestia-about-controls.php:126
+#: inc/customizer/front-page/class-hestia-about-controls.php:133
 msgid "About background"
 msgstr ""
 
@@ -1935,13 +1935,13 @@ msgstr ""
 msgid "About"
 msgstr ""
 
-#: inc/customizer/front-page/class-hestia-about-controls.php:76
-#: inc/customizer/front-page/class-hestia-about-controls.php:103
+#: inc/customizer/front-page/class-hestia-about-controls.php:80
+#: inc/customizer/front-page/class-hestia-about-controls.php:110
 msgid "About Content"
 msgstr ""
 
 #: inc/customizer/front-page/class-hestia-big-title-controls.php:95
-#: inc/customizer/general/class-hestia-upsell-manager.php:190
+#: inc/customizer/general/class-hestia-upsell-manager.php:193
 msgid "Big Title Background"
 msgstr ""
 
@@ -2036,11 +2036,11 @@ msgstr ""
 msgid "Post Pagination"
 msgstr ""
 
-#: inc/customizer/general/class-hestia-buttons-style-controls.php:80
+#: inc/customizer/general/class-hestia-buttons-style-controls.php:83
 msgid "Padding (px)"
 msgstr ""
 
-#: inc/customizer/general/class-hestia-buttons-style-controls.php:105
+#: inc/customizer/general/class-hestia-buttons-style-controls.php:108
 msgid "Border radius"
 msgstr ""
 
@@ -2064,19 +2064,19 @@ msgstr ""
 msgid "Enable Sharing Icons"
 msgstr ""
 
-#: inc/customizer/general/class-hestia-general-controls.php:130
+#: inc/customizer/general/class-hestia-general-controls.php:131
 msgid "Enable Scroll to Top"
 msgstr ""
 
-#: inc/customizer/general/class-hestia-general-controls.php:152
+#: inc/customizer/general/class-hestia-general-controls.php:153
 msgid "Boxed Layout"
 msgstr ""
 
-#: inc/customizer/general/class-hestia-general-controls.php:153
+#: inc/customizer/general/class-hestia-general-controls.php:154
 msgid "If enabled, the theme will use a boxed layout."
 msgstr ""
 
-#: inc/customizer/general/class-hestia-general-controls.php:169
+#: inc/customizer/general/class-hestia-general-controls.php:170
 msgid "Disable"
 msgstr ""
 
@@ -2097,7 +2097,7 @@ msgid "Header Settings"
 msgstr ""
 
 #: inc/customizer/general/class-hestia-typography-controls.php:50
-#: inc/customizer/general/class-hestia-upsell-manager.php:161
+#: inc/customizer/general/class-hestia-upsell-manager.php:164
 msgid "Typography"
 msgstr ""
 
@@ -2128,29 +2128,30 @@ msgstr ""
 msgid "Posts & Pages"
 msgstr ""
 
-#: inc/customizer/general/class-hestia-upsell-manager.php:40
+#: inc/customizer/general/class-hestia-upsell-manager.php:43
 msgid "View PRO Features"
 msgstr ""
 
-#: inc/customizer/general/class-hestia-upsell-manager.php:68
+#: inc/customizer/general/class-hestia-upsell-manager.php:71
 msgid "Drag and drop panels to change the order of sections."
 msgstr ""
 
-#: inc/customizer/general/class-hestia-upsell-manager.php:104
+#: inc/customizer/general/class-hestia-upsell-manager.php:107
 msgid "The ability to reorganize your Frontpage sections more easily and quickly."
 msgstr ""
 
-#: inc/customizer/general/class-hestia-upsell-manager.php:160
-#: inc/customizer/general/class-hestia-upsell-manager.php:189
+#: inc/customizer/general/class-hestia-upsell-manager.php:163
+#: inc/customizer/general/class-hestia-upsell-manager.php:192
 #. translators: %s is Feature name
 #. translators: %s Feature name
 msgid "More Options Available for %s in the PRO version."
 msgstr ""
 
-#: inc/customizer/general/class-hestia-upsell-manager.php:166
-#: inc/customizer/general/class-hestia-upsell-manager.php:195
+#: inc/customizer/general/class-hestia-upsell-manager.php:169
+#: inc/customizer/general/class-hestia-upsell-manager.php:198
 #: inc/views/blog/class-hestia-blog-post-layout.php:326
 #: inc/views/blog/class-hestia-featured-posts.php:141
+#: inc/views/class-hestia-tweaks.php:71
 #. translators: %1$s is Time since, %2$s is Link to post
 msgid "Read more"
 msgstr ""
@@ -2231,10 +2232,6 @@ msgstr ""
 #: inc/views/blog/class-hestia-header-layout-manager.php:383
 #. translators: %1$s is Author name wrapped, %2$s is Date
 msgid "Published by %1$s on %2$s"
-msgstr ""
-
-#: inc/views/class-hestia-tweaks.php:71
-msgid "Read more&hellip;"
 msgstr ""
 
 #: inc/views/class-hestia-tweaks.php:135

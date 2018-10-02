@@ -96,14 +96,17 @@ class Hestia_Buttons extends Hestia_Abstract_Main {
 		 */
 		$hestia_button_padding_dimensions = get_theme_mod(
 			'hestia_button_padding_dimensions',
-			json_encode(
-				array(
-					'desktop' => json_encode(
-						array(
-							'desktop_vertical'   => 15,
-							'desktop_horizontal' => 33,
-						)
-					),
+			apply_filters(
+				'hestia_button_padding_dimensions_default',
+				json_encode(
+					array(
+						'desktop' => json_encode(
+							array(
+								'desktop_vertical'   => 15,
+								'desktop_horizontal' => 33,
+							)
+						),
+					)
 				)
 			)
 		);
@@ -159,7 +162,10 @@ class Hestia_Buttons extends Hestia_Abstract_Main {
 		/**
 		 * Gather data from customizer.
 		 */
-		$hestia_buttons_border_radius = get_theme_mod( 'hestia_buttons_border_radius', 3 );
+		$hestia_buttons_border_radius = get_theme_mod(
+			'hestia_buttons_border_radius',
+			apply_filters( 'hestia_buttons_border_radius_default', 3 )
+		);
 
 		/**
 		 * Adding style.
