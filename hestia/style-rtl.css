@@ -5,7 +5,7 @@ Theme URI:      https://themeisle.com/themes/hestia-pro/
 Author:         ThemeIsle
 Author URI:     https://themeisle.com
 Description:    Hestia Pro is a modern WordPress theme for professionals. It fits creative business, small businesses (restaurants, wedding planners, sport/medical shops), startups, corporate businesses, online agencies and firms, portfolios, ecommerce (WooCommerce), and freelancers. It has a multipurpose one-page design, widgetized footer, blog/news page and a clean look, is compatible with: Flat Parallax Slider, Photo Gallery, Travel Map and Elementor Page Builder . The theme is responsive, WPML, Retina ready, SEO friendly, and uses Material Kit for design.
-Version:        2.0.3
+Version:        2.0.5
 License:        GNU General Public License v2 or later
 License URI:    http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain:    hestia-pro
@@ -2841,6 +2841,9 @@ body.admin-bar .navbar {
 	position: relative;
 	color: #333;
 }
+.navbar .navbar-nav > li .dropdown-menu li.active > a {
+	color: #333;
+}
 .navbar .navbar-nav > li .dropdown-menu li:hover > a {
 	color: #e91e63;
 }
@@ -4474,6 +4477,39 @@ table > tbody > tr:last-child,
 	}
 	.carousel-control.right i {
 		left: 10px;
+	}
+}
+
+/* Compatibility with Internet Explorer, vertical align slider content */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+	.carousel .page-header .container {
+		display: table;
+		min-height: inherit;
+	}
+	.carousel .page-header .container .row {
+		display: table-row;
+		/* Widgets area enabled in Big Title section */
+	}
+	.carousel .page-header .container .row .big-title-slider-content {
+		display: table-cell;
+		float: none;
+		margin: auto;
+		vertical-align: middle;
+	}
+	.carousel .page-header .container .row .big-title-slider-content.col-md-7 {
+		display: table-cell;
+		float: none;
+		margin: auto;
+		vertical-align: middle;
+	}
+	.carousel .page-header .container .row .big-title-sidebar-wrapper.col-md-5 {
+		display: table-cell;
+		float: none;
+		margin: auto;
+		vertical-align: middle;
+	}
+	.carousel .carousel-control .fa {
+		right: 50%;
 	}
 }
 
@@ -7114,7 +7150,7 @@ aside .widget a {
 
 	.page-header {
 		height: auto;
-		min-height: 100vh;
+		min-height: 0;
 	}
 
 	.card.card-raised .card-image {

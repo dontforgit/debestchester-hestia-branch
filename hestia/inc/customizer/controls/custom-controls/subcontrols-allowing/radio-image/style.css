@@ -96,22 +96,6 @@
     background: #f3f3f5;
 }
 
-.pro-feature:after{
-    content: 'PRO';
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    background: #a5a5a5;
-    width: 30px;
-    margin: 0 auto;
-    color: #fff;
-    padding: 6px;
-    border-radius: 4px;
-    font-weight: bold;
-}
-
 .pro-feature img{
-    opacity: 0.2;
+    opacity: 0.5;
 }
