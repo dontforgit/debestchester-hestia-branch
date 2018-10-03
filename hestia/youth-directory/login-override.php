@@ -1,12 +1,15 @@
 <style>
     /* Hack to hide student name before login */
-    h1.hestia-title{
+    h1.hestia-title.entry-title, h1.hestia-title{
         visibility:hidden;
     }
-    h1.hestia-title:after{
+    h1.hestia-title.entry-title:after, h1.hestia-title:after{
         visibility:visible;
         display:block;
         content: "Protected: Login to view this page.";
+    }
+    .author{
+        display:none;
     }
 </style>
 <article id="post-<?php the_ID(); ?>" class="section section-text">
