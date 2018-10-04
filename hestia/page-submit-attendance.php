@@ -11,7 +11,7 @@ if (!isset($_GET['attendance']) || $_GET['event'] === 'Choose One') {
 global $wpdb;
 $table_name = $wpdb->prefix . 'attendance';
 $attendees = $_GET['attendance'];
-$date = $_GET['date'];
+$date = date('Y-m-d', strtotime($_GET['date']));
 $event = $_GET['event'];
 $attendee_total = count($attendees);
 
