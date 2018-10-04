@@ -56,6 +56,11 @@ if (isset($emergency_contact_number) && trim($emergency_contact_number) !== '') 
 } else {
     $emergency_contact_number_display = '<span class="text-danger">Emergency Contact Not Set</span>';
 }
+
+// Gather attendance information
+$all_time_attendance = get_youth_directory_attendance(get_the_ID(), 999);
+$three_month_attendance = get_youth_directory_attendance(get_the_ID(), 3);
+$last_month_attendance = get_youth_directory_attendance(get_the_ID());
 ?>
 
 <div class="<?php echo hestia_layout(); ?>">
@@ -73,8 +78,8 @@ if (isset($emergency_contact_number) && trim($emergency_contact_number) !== '') 
                             <div class="row">
                                 <div class="single-post-wrap youth-directory-wrap">
                                     <div class="row">
-                                        <h4 style="text-align:center;">Special Designations</h4>
-                                        <div class="col-md-12 tag-list">
+                                        <h4 style="text-align:center;">Designations &amp; Attendance</h4>
+                                        <div class="col-md-12 tag-list" style="margin-bottom:20px;">
                                             <p>
                                                 <?php
                                                 $i = 1;
@@ -87,7 +92,27 @@ if (isset($emergency_contact_number) && trim($emergency_contact_number) !== '') 
                                                 ?>
                                             </p>
                                         </div>
+
+                                        <div class="col-md-4">
+                                            <p class="youth-directory-attendance">
+                                                <strong>All Time Attendance:</strong><br/>
+                                                <?php echo display_youth_directory_attendance($all_time_attendance); ?>
+                                            </p>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <p class="youth-directory-attendance">
+                                                <strong>Last Three Month's Attendance:</strong><br/>
+                                                <?php echo display_youth_directory_attendance($three_month_attendance); ?>
+                                            </p>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <p class="youth-directory-attendance">
+                                                <strong>Last Month's Attendance:</strong><br/>
+                                                <?php echo display_youth_directory_attendance($last_month_attendance); ?>
+                                            </p>
+                                        </div>
                                     </div>
+                                    <hr/>
 
                                     <h3>Basic Information</h3>
                                     <div class="row">

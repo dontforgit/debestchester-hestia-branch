@@ -17,4 +17,8 @@
     .individual-tag{
         margin: auto 15px;
     }
+    .youth-directory-attendance{
+        text-align:center;
+        margin-bottom:0px !important;
+    }
 </style>
