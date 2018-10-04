@@ -56,10 +56,12 @@ $wrap_class = apply_filters('hestia_filter_single_post_content_classes', 'col-md
                             }
                             ?>
                             <div class="col-md-4">
-                                <p><strong><?php echo $attendee->post_title; ?></strong></p>
-                            </div>
-                            <div class="col-md-2">
-                                <p class="<?php echo $attendance_class; ?>"><?php echo $attendance_number; ?></p>
+                                <p class="<?php echo $attendance_class; ?>">
+                                    <a href="<?php echo $attendee->guid; ?>" style="color:#999; border-bottom:1px dotted #999;">
+                                        <strong><?php echo $attendee->post_title; ?></strong>
+                                    </a>
+                                    - <?php echo $attendance_number; ?>
+                                </p>
                             </div>
                         <?php endforeach; ?>
                     <?php endif; ?>
