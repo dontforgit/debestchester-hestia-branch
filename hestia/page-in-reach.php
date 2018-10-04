@@ -11,5 +11,22 @@ $sql = "SELECT p.post_title AS attendee, COUNT(a.attend_id) AS attendance_count,
             LEFT JOIN wp_posts p ON a.attend_id = p.ID
         WHERE a.attend_date > '{$one_month_ago}'
         GROUP BY a.attend_id;";
-$results = $wpdb->get_results($sql);
-echo_pre($results,1);
+$attendance_results = $wpdb->get_results($sql);
+
+$attendance = array();
+foreach($attendance_results as $result) {
+    $attendance[$result->user_id] = $result->attendance_count;
+}
+
+$sql = "SELECT * FROM wp_posts p where p.post_type = 'youth_directory' AND p.post_status = 'publish';";
+$directory_results = $wpdb->get_results($sql);
+
+foreach($directory_results as $attendee) {
+    echo $attendee->post_title . ' - ';
+    if (isset($attendance[$attendee->ID])) {
+        echo $attendance[$attendee->ID];
+    } else {
+        echo '0';
+    }
+    echo '<br/>';
+}
