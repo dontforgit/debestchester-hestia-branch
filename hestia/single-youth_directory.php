@@ -76,129 +76,127 @@ $last_month_attendance = get_youth_directory_attendance(get_the_ID());
                         the_post();
                         ?>
                         <article id="post-<?php the_ID(); ?>" class="section section-text">
-                            <div class="row">
-                                <div class="single-post-wrap youth-directory-wrap">
-                                    <div class="row">
-                                        <h4 style="text-align:center;">Designations &amp; Attendance</h4>
-                                        <div class="col-md-12 tag-list" style="margin-bottom:20px;">
-                                            <p>
-                                                <?php
-                                                $i = 1;
-                                                foreach ($tags as $tag) :
-                                                    ?>
-                                                    <span class="individual-tag"><?php echo $tag->name; ?></span><?php if ($i < $tag_count) : ?>|<?php endif; ?>
-                                                    <?php
-                                                    ++$i;
-                                                endforeach;
+                            <div class="single-post-wrap youth-directory-wrap">
+                                <div class="row">
+                                    <h4 style="text-align:center;">Designations &amp; Attendance</h4>
+                                    <div class="col-md-12 tag-list" style="margin-bottom:20px;">
+                                        <p>
+                                            <?php
+                                            $i = 1;
+                                            foreach ($tags as $tag) :
                                                 ?>
-                                            </p>
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <p class="youth-directory-attendance">
-                                                <strong>All Time Attendance:</strong><br/>
-                                                <?php echo display_youth_directory_attendance($all_time_attendance); ?>
-                                            </p>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <p class="youth-directory-attendance">
-                                                <strong>Last Three Month's Attendance:</strong><br/>
-                                                <?php echo display_youth_directory_attendance($three_month_attendance); ?>
-                                            </p>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <p class="youth-directory-attendance">
-                                                <strong>Last Month's Attendance:</strong><br/>
-                                                <?php echo display_youth_directory_attendance($last_month_attendance); ?>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <hr/>
-
-                                    <h3>Basic Information</h3>
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <p><strong>Name:</strong> <?php echo $first_name . ' ' . $last_name; ?></p>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <p><strong>Shirt Size:</strong> <?php echo $shirt_size; ?></p>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <p><strong>Birthday:</strong> <?php echo $birthday; ?></p>
-                                        </div>
-                                        <div clas="col-md-3">
-                                            <p><strong>Grade:</strong> <?php echo $grade; ?></p>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <p><strong>School:</strong> <?php echo $school; ?></p>
-                                        </div>
-                                        <div class="col-md-9">
-                                            <p><strong>Team:</strong> <?php echo $current_team; ?></p>
-                                        </div>
+                                                <span class="individual-tag"><?php echo $tag->name; ?></span><?php if ($i < $tag_count) : ?>|<?php endif; ?>
+                                                <?php
+                                                ++$i;
+                                            endforeach;
+                                            ?>
+                                        </p>
                                     </div>
 
-                                    <h3>Fun Information</h3>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <p><strong>Favorite Pizza:</strong> <?php echo $pizza; ?></p>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <p><strong>Favorite Ice Cream:</strong> <?php echo $ice_cream; ?></p>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <p><strong>Favorite Candy:</strong> <?php echo $candy; ?></p>
-                                        </div>
+                                    <div class="col-md-4">
+                                        <p class="youth-directory-attendance">
+                                            <strong>All Time Attendance:</strong><br/>
+                                            <?php echo display_youth_directory_attendance($all_time_attendance); ?>
+                                        </p>
                                     </div>
+                                    <div class="col-md-4">
+                                        <p class="youth-directory-attendance">
+                                            <strong>Last Three Month's Attendance:</strong><br/>
+                                            <?php echo display_youth_directory_attendance($three_month_attendance); ?>
+                                        </p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p class="youth-directory-attendance">
+                                            <strong>Last Month's Attendance:</strong><br/>
+                                            <?php echo display_youth_directory_attendance($last_month_attendance); ?>
+                                        </p>
+                                    </div>
+                                </div>
+                                <hr/>
 
-                                    <h3>Spiritual Information</h3>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <p><strong>Saved:</strong> <?php echo ($saved) ? 'Yes' : 'No'; ?></p>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <p><strong>Baptized:</strong> <?php echo ($baptized) ? 'Yes' : 'No'; ?></p>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <p><strong>Mission Trip:</strong> <?php echo ($missions) ? 'Yes' : 'No'; ?></p>
-                                        </div>
+                                <h3>Basic Information</h3>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <p><strong>Name:</strong> <?php echo $first_name . ' ' . $last_name; ?></p>
                                     </div>
+                                    <div class="col-md-3">
+                                        <p><strong>Shirt Size:</strong> <?php echo $shirt_size; ?></p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <p><strong>Birthday:</strong> <?php echo $birthday; ?></p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <p><strong>Grade:</strong> <?php echo $grade; ?></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <p><strong>School:</strong> <?php echo $school; ?></p>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <p><strong>Team:</strong> <?php echo $current_team; ?></p>
+                                    </div>
+                                </div>
 
-                                    <h3>Emergency Information</h3>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <p><strong>Emergency Contact:</strong> <?php echo $emergency_contact_name_display; ?></p>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <p><strong>Emergency Contact Number:</strong> <?php echo $emergency_contact_number_display; ?></p>
-                                        </div>
+                                <h3>Fun Information</h3>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <p><strong>Favorite Pizza:</strong> <?php echo $pizza; ?></p>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <p><strong>Address:</strong><br/><?php echo $address; ?></p>
-                                        </div>
+                                    <div class="col-md-4">
+                                        <p><strong>Favorite Ice Cream:</strong> <?php echo $ice_cream; ?></p>
                                     </div>
+                                    <div class="col-md-4">
+                                        <p><strong>Favorite Candy:</strong> <?php echo $candy; ?></p>
+                                    </div>
+                                </div>
 
-                                    <div class="row">
-                                        <?php if (current_user_can('administrator')) : ?>
-                                            <?php if (isset($insurance_information) && $insurance_information != false) : ?>
-                                                <div class="col-md-12">
-                                                    <p><strong>Insurance Information:</strong> <?php echo_pre($insurance_information); ?></p>
-                                                </div>
-                                            <?php endif; ?>
-                                            <?php if (isset($compliance_form) && $compliance_form != false) : ?>
-                                                <div class="col-md-12">
-                                                    <p>
-                                                        <strong>Consent Form:</strong>
-                                                        <a href="<?php echo $compliance_form['url']; ?>" target="_blank">
-                                                            <?php echo $compliance_form['title']; ?>
-                                                        </a>
-                                                    </p>
-                                                </div>
-                                            <?php endif; ?>
+                                <h3>Spiritual Information</h3>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <p><strong>Saved:</strong> <?php echo ($saved) ? 'Yes' : 'No'; ?></p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p><strong>Baptized:</strong> <?php echo ($baptized) ? 'Yes' : 'No'; ?></p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p><strong>Mission Trip:</strong> <?php echo ($missions) ? 'Yes' : 'No'; ?></p>
+                                    </div>
+                                </div>
+
+                                <h3>Emergency Information</h3>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p><strong>Emergency Contact:</strong> <?php echo $emergency_contact_name_display; ?></p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><strong>Emergency Contact Number:</strong> <?php echo $emergency_contact_number_display; ?></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <p><strong>Address:</strong><br/><?php echo $address; ?></p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <?php if (current_user_can('administrator')) : ?>
+                                        <?php if (isset($insurance_information) && $insurance_information != false) : ?>
+                                            <div class="col-md-12">
+                                                <p><strong>Insurance Information:</strong> <?php echo_pre($insurance_information); ?></p>
+                                            </div>
                                         <?php endif; ?>
-                                    </div>
+                                        <?php if (isset($compliance_form) && $compliance_form != false) : ?>
+                                            <div class="col-md-12">
+                                                <p>
+                                                    <strong>Consent Form:</strong>
+                                                    <a href="<?php echo $compliance_form['url']; ?>" target="_blank">
+                                                        <?php echo $compliance_form['title']; ?>
+                                                    </a>
+                                                </p>
+                                            </div>
+                                        <?php endif; ?>
+                                    <?php endif; ?>
                                 </div>
                         </article>
                         <?php

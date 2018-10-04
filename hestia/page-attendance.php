@@ -28,47 +28,43 @@ $classifications = get_youth_directory_classifications();
             else :
                 ?>
                 <article id="post-<?php the_ID(); ?>" class="section section-text">
-                    <div class="row">
-                        <div class="single-post-wrap youth-directory-wrap">
-                            <form action="<?php bloginfo('url'); ?>/submit-attendance/" method="get" style="margin:0px 15px;font-size:1.25em;">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label for="date">Date</label>
-                                        <input type="text" name="date" class="form-control" id="date" value="<?php echo date('m/d/Y'); ?>">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="event">Event</label><br/>
-                                        <select class="event" name="event" id="event" style="width:100%;">
-                                            <option selected>Choose One</option>
-                                            <option value="sunday_school">Sunday School</option>
-                                            <option value="sunday_night">Sunday Night</option>
-                                            <option value="wednesday_night">Wednesday Night</option>
-                                        </select>
-                                    </div>
+                    <div class="single-post-wrap youth-directory-wrap">
+                        <form action="<?php bloginfo('url'); ?>/submit-attendance/" method="get" style="margin:0px 15px;font-size:1.25em;">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="date">Date</label>
+                                    <input type="text" name="date" class="form-control" id="date" value="<?php echo date('m/d/Y'); ?>">
                                 </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <?php foreach ($classifications as $classification => $users) : ?>
-                                            <div class="row" style="margin-bottom:15px;">
-                                                <p style="border-bottom:1px solid #999; margin-bottom:15px;"><?php echo $classification; ?></p>
-                                                <?php foreach ($users as $user) : ?>
-                                                    <?php $unique_name = 'attendance_' . $user['id']; ?>
-                                                    <div class="col-md-3" style="padding:5px;">
-                                                        <input class="form-check-input" name="attendance[]" type="checkbox" value="<?php echo $user['id']; ?>" id="<?php echo $unique_name; ?>">
-                                                        <label class="form-check-label" for="<?php echo $unique_name; ?>">&nbsp;&nbsp;&nbsp;<?php echo $user['title']; ?></label>
-                                                    </div>
-                                                <?php endforeach; ?>
+                                <div class="col-md-6">
+                                    <label for="event">Event</label><br/>
+                                    <select class="event" name="event" id="event" style="width:100%;">
+                                        <option selected>Choose One</option>
+                                        <option value="sunday_school">Sunday School</option>
+                                        <option value="sunday_night">Sunday Night</option>
+                                        <option value="wednesday_night">Wednesday Night</option>
+                                    </select>
+                                </div>
+                            </div><br/>
+                            <div class="form-group">
+                                <?php foreach ($classifications as $classification => $users) : ?>
+                                    <div class="row" style="margin-bottom:15px;">
+                                        <p style="border-bottom:1px solid #999; margin-bottom:15px;"><?php echo $classification; ?></p>
+                                        <?php foreach ($users as $user) : ?>
+                                            <?php $unique_name = 'attendance_' . $user['id']; ?>
+                                            <div class="col-md-3" style="padding:5px;">
+                                                <input class="form-check-input" name="attendance[]" type="checkbox" value="<?php echo $user['id']; ?>" id="<?php echo $unique_name; ?>">
+                                                <label class="form-check-label" for="<?php echo $unique_name; ?>">&nbsp;&nbsp;&nbsp;<?php echo $user['title']; ?></label>
                                             </div>
                                         <?php endforeach; ?>
                                     </div>
+                                <?php endforeach; ?>
+                            </div>
+                            <div class="row" style="margin-bottom:15px;">
+                                <div class="col-md-12">
+                                    <button class="btn btn-info" type="submit">Submit</button>
                                 </div>
-                                <div class="row" style="margin-bottom:15px;">
-                                    <div class="col-md-12">
-                                        <button class="btn btn-info" type="submit">Submit</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+                            </div>
+                        </form>
                     </div>
                 </article>
             <?php endif; ?>
