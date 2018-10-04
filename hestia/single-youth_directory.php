@@ -31,6 +31,7 @@ $address = get_field('youth_member_address');
 $emergency_contact_name = get_field('youth_member_emergency_contact_name');
 $emergency_contact_number = get_field('youth_member_emergency_contact_number');
 $insurance_information = get_field('youth_member_insurance_information');
+$compliance_form = get_field('youth_activities_consent_form');
 
 // Fun Information
 $ice_cream = get_field('fun_favorite_ice_cream_flavor');
@@ -178,11 +179,26 @@ $last_month_attendance = get_youth_directory_attendance(get_the_ID());
                                             <p><strong>Address:</strong><br/><?php echo $address; ?></p>
                                         </div>
                                     </div>
-                                    <?php if (is_admin()) : ?>
-                                        <div class="col-md-12">
-                                            <p><strong>Insurance Information:</strong> <?php echo_pre($insurance_information); ?></p>
-                                        </div>
-                                    <?php endif; ?>
+
+                                    <div class="row">
+                                        <?php if (current_user_can('administrator')) : ?>
+                                            <?php if (isset($insurance_information) && $insurance_information != false) : ?>
+                                                <div class="col-md-12">
+                                                    <p><strong>Insurance Information:</strong> <?php echo_pre($insurance_information); ?></p>
+                                                </div>
+                                            <?php endif; ?>
+                                            <?php if (isset($compliance_form) && $compliance_form != false) : ?>
+                                                <div class="col-md-12">
+                                                    <p>
+                                                        <strong>Consent Form:</strong>
+                                                        <a href="<?php echo $compliance_form['url']; ?>" target="_blank">
+                                                            <?php echo $compliance_form['title']; ?>
+                                                        </a>
+                                                    </p>
+                                                </div>
+                                            <?php endif; ?>
+                                        <?php endif; ?>
+                                    </div>
                                 </div>
                         </article>
                         <?php

@@ -50,11 +50,12 @@ $wrap_class = apply_filters('hestia_filter_single_post_content_classes', 'col-md
                             $turning = ($this_birthday['birthday_month'] == $this_month) ? ($this_year - $this_birthday['birthday_year']) : '';
                             ?>
                             <p class="<?php echo $class; ?>">
-                                <strong><?php echo $this_birthday['name']; ?></strong><br/>
-                                <?php echo $this_birthday['birthday_date']; ?>
+                                <strong><?php echo $this_birthday['name']; ?></strong>
                                 <?php if (trim($turning) !== '') : ?>
-                                    <br/>Turning <?php echo $turning; ?>!
+                                    (<?php echo $turning; ?>)
                                 <?php endif; ?>
+                                <br/>
+                                <?php echo $this_birthday['birthday_date']; ?>
                             </p>
                         </div>
                         <?php endforeach; ?>
