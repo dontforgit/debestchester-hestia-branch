@@ -2,9 +2,32 @@
 // Include Youth Directory functions file
 require_once dirname(__FILE__ ) . '/youth-directory/functions.php';
 
-// One month from now
-$today = date('Y-m-d');
-$next_month = date('Y-m-d', strtotime('+1month'));
+$this_month = date('m');
+$this_year = date('Y');
+
+// Get birthday information if exists
+$sql = "SELECT pm.meta_value AS birthday, p.post_title AS youth, p.post_name AS slug
+        FROM wp_postmeta pm 
+          LEFT JOIN wp_posts p ON pm.post_id = p.ID
+        WHERE pm.meta_key = 'youth_member_birthday' AND pm.meta_value <> ''
+        ORDER BY pm.meta_value ASC";
+$birthdays = $wpdb->get_results($sql);
+
+$unsorted_birthdays = array();
+foreach ($birthdays as $birthday) {
+    $birthday_month = date('m', strtotime($birthday->birthday));
+    $birthday_day = date('d', strtotime($birthday->birthday));
+    $birthday_year = date('Y', strtotime($birthday->birthday));
+    $data = array(
+        'birthday_date' => date('m/d/Y', strtotime($birthday->birthday)),
+        'birthday_year' => $birthday_year,
+        'birthday_month' => $birthday_month,
+        'name' => $birthday->youth,
+    );
+    $unsorted_birthdays[$birthday_month . '-' . $birthday_day . '-' . $birthday->slug] = $data;
+}
+
+ksort($unsorted_birthdays);
 
 // Default Hestia information
 get_header();
@@ -20,45 +43,21 @@ $wrap_class = apply_filters('hestia_filter_single_post_content_classes', 'col-md
             <article id="post-<?php the_ID(); ?>" class="section section-text">
                 <div class="row">
                     <div class="single-post-wrap youth-directory-wrap">
-                        <?php
-                        // Find the birthdays within the next month
-                        $args = array(
-                            'posts_per_page' => -1,
-                            'post_type' => 'youth_directory',
-                            'meta_query'	=> array(
-                                'relation' => 'AND',
-                                array(
-                                    'key' => 'youth_member_birthday',
-                                    'value' => $today,
-                                    'compare' => '>'
-                                ),
-                                array(
-                                    'key' => 'youth_member_birthday',
-                                    'value' => $next_month,
-                                    'compare' => '<'
-                                ),
-                            ),
-                        );
-
-                        // query
-                        $the_query = new WP_Query( $args );
-
-                        ?>
-                        <?php if( $the_query->have_posts() ): ?>
-                        <ul>
-                            <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-                                <li>
-                                    <a href="<?php the_permalink(); ?>">
-                                        <img src="<?php the_field('event_thumbnail'); ?>" />
-                                        <?php the_title(); ?>
-                                    </a>
-                                </li>
-                            <?php endwhile; ?>
-                        </ul>
-                        <?php endif; ?>
-
-                        <?php wp_reset_query(); ?>
-
+                        <?php foreach ($unsorted_birthdays as $this_birthday) : ?>
+                        <div class="col-md-3">
+                            <?php
+                            $class = ($this_birthday['birthday_month'] == $this_month) ? 'text-danger' : '';
+                            $turning = ($this_birthday['birthday_month'] == $this_month) ? ($this_year - $this_birthday['birthday_year']) : '';
+                            ?>
+                            <p class="<?php echo $class; ?>">
+                                <strong><?php echo $this_birthday['name']; ?></strong><br/>
+                                <?php echo $this_birthday['birthday_date']; ?>
+                                <?php if (trim($turning) !== '') : ?>
+                                    <br/>Turning <?php echo $turning; ?>!
+                                <?php endif; ?>
+                            </p>
+                        </div>
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </article>
