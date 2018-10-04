@@ -39,7 +39,8 @@ $wrap_class = apply_filters('hestia_filter_single_post_content_classes', 'col-md
                 <article id="post-<?php the_ID(); ?>" class="section section-text">
                     <div class="row">
                         <div class="single-post-wrap youth-directory-wrap">
-                            <p>Today's attendance: <?php echo $attendee_total; ?></p>
+                            <h4 style="text-align:center;">Today's Attendance</h4>
+                            <h3 style="text-align:center;"><?php echo $attendee_total; ?></h3>
                         </div>
                     </div>
                 </article>
