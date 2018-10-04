@@ -15,34 +15,30 @@ $sidebar_layout = apply_filters('hestia_sidebar_layout', get_theme_mod('hestia_b
 $wrapper_classes = apply_filters('hestia_filter_archive_content_classes', 'col-md-8 archive-post-wrap');
 do_action( 'hestia_before_archive_content' );
 
-// Customized Youth Directory Query
-$args = array(
-    'post_type' => 'youth_directory',
-    'posts_per_page' => -1,
-    'orderby' => array(
-        'title' => 'ASC'
-    ),
-);
-$directory = new WP_Query($args);
+$classifications = get_youth_directory_classifications();
 ?>
 <div class="<?php echo hestia_layout(); ?>">
     <div class="hestia-blogs" data-layout="<?php echo esc_attr( $sidebar_layout ); ?>">
         <div class="container">
-            <div class="row">
-                <?php
-                if (!is_user_logged_in()) :
-                    get_template_part('youth-directory/login-override');
-                else :
-                    while ($directory->have_posts()) :
-                        $directory->the_post();
-                        ?>
-                        <div class="col-md-4">
-                            <h3><a href="<?php echo get_the_permalink(); ?>"><?php the_title(); ?></a></h3>
-                        </div>
-                    <?php endwhile; ?>
-                <?php endif; ?>
-            </div>
+            <?php
+            if (!is_user_logged_in()) :
+                get_template_part('youth-directory/login-override');
+            else :
+                foreach ($classifications as $classification => $users) : ?>
+                    <div class="row">
+                        <h3 style="border-bottom:1px solid #999; margin-bottom:15px;"><?php echo $classification; ?></h3>
+                        <?php foreach ($users as $user) : ?>
+                            <div class="col-md-3">
+                                <p style="font-size:1.25em;">
+                                    <a href="<?php echo $user['link']; ?>" style="color:#999; text-decoration: underline;">
+                                        <?php echo $user['title']; ?>
+                                    </a>
+                                </p>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
         </div>
     </div>
-    <?php get_footer(); ?>
-<?php
+    <?php get_footer();

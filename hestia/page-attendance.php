@@ -16,16 +16,7 @@ $default = hestia_get_blog_layout_default();
 $sidebar_layout = apply_filters('hestia_sidebar_layout', get_theme_mod('hestia_blog_sidebar_layout', $default));
 $wrap_class = apply_filters('hestia_filter_single_post_content_classes', 'col-md-8 single-post-container');
 
-// Gather students to get attendance
-$args = array(
-    'post_type' => 'youth_directory',
-    'posts_per_page' => -1,
-    'orderby' => array(
-        'title' => 'ASC'
-    ),
-    // @todo: Filter out inactive/college members
-);
-$directory = new WP_Query($args);
+$classifications = get_youth_directory_classifications();
 ?>
 
 <div class="<?php echo hestia_layout(); ?>">
@@ -57,16 +48,18 @@ $directory = new WP_Query($args);
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
-                                        <?php
-                                        while ($directory->have_posts()) :
-                                            $directory->the_post();
-                                            $unique_name = 'attendance_' . get_the_ID();
-                                            ?>
-                                            <div class="col-md-3" style="padding:5px;">
-                                                <input class="form-check-input" name="attendance[]" type="checkbox" value="<?php the_ID(); ?>" id="<?php echo $unique_name; ?>">
-                                                <label class="form-check-label" for="<?php echo $unique_name; ?>">&nbsp;&nbsp;&nbsp;<?php the_title(); ?></label>
+                                        <?php foreach ($classifications as $classification => $users) : ?>
+                                            <div class="row" style="margin-bottom:15px;">
+                                                <p style="border-bottom:1px solid #999; margin-bottom:15px;"><?php echo $classification; ?></p>
+                                                <?php foreach ($users as $user) : ?>
+                                                    <?php $unique_name = 'attendance_' . $user['id']; ?>
+                                                    <div class="col-md-3" style="padding:5px;">
+                                                        <input class="form-check-input" name="attendance[]" type="checkbox" value="<?php echo $user['id']; ?>" id="<?php echo $unique_name; ?>">
+                                                        <label class="form-check-label" for="<?php echo $unique_name; ?>">&nbsp;&nbsp;&nbsp;<?php echo $user['title']; ?></label>
+                                                    </div>
+                                                <?php endforeach; ?>
                                             </div>
-                                        <?php endwhile; ?>
+                                        <?php endforeach; ?>
                                     </div>
                                 </div>
                                 <div class="row" style="margin-bottom:15px;">
