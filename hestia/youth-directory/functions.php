@@ -52,11 +52,14 @@ function get_youth_directory_attendance($user_id, $months_in_the_past = 1)
 function display_youth_directory_attendance($attendance_array)
 {
     $HTML = '';
+    $total = 0;
     foreach ($attendance_array as $event_type => $attendance) {
         $HTML .= '<span style="text-decoration:underline;">';
         $HTML .= ucwords(preg_replace('/_/', ' ', $event_type));
         $HTML .= '</span>';
         $HTML .= ' - ' . $attendance . '<br/>';
+        $total += $attendance;
     }
+    $HTML .= '<span style="text-decoration:underline;">Total</span> - ' . $total;
     return $HTML;
 }
