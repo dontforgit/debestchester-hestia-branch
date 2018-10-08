@@ -94,6 +94,7 @@ function get_youth_directory_classifications()
     $classifications = array(
         'Member' => array(),
         'Volunteer Team' => array(),
+        'Guest' => array(),
         'Big Event' => array(),
         'College' => array(),
         'Inactive' => array(),
@@ -117,6 +118,8 @@ function get_youth_directory_classifications()
             array_push($classifications['Big Event'], $user_information);
         } elseif (has_tag('Volunteer Team')) {
             array_push($classifications['Volunteer Team'], $user_information);
+        } elseif (has_tag('Guest')) {
+            array_push($classifications['Guest'], $user_information);
         } else {
             array_push($classifications['Member'], $user_information);
         }

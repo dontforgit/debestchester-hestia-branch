@@ -20,13 +20,7 @@ foreach($attendance_results as $result) {
     $attendance[$result->user_id] = $result->attendance_count;
 }
 
-// Get all the youth
-$sql = "SELECT * 
-        FROM wp_posts p 
-        WHERE p.post_type = 'youth_directory' 
-          AND p.post_status = 'publish' 
-        ORDER BY p.post_title ASC;";
-$directory_results = $wpdb->get_results($sql);
+$classifications = get_youth_directory_classifications();
 
 // Default Hestia information
 get_header();
@@ -41,31 +35,35 @@ $wrap_class = apply_filters('hestia_filter_single_post_content_classes', 'col-md
         <div class="container">
             <article id="post-<?php the_ID(); ?>" class="section section-text">
                 <h3 style="text-align:center;">Attendance from the last <?php echo $month_offset; ?> month(s)</h3>
-                <div class="row">
-                    <?php
-                    if (!is_user_logged_in()) :
-                        get_template_part('youth-directory/login-override');
-                    else :
-                        foreach ($directory_results as $attendee) :
-                            if (isset($attendance[$attendee->ID])) {
-                                $attendance_class = '';
-                                $attendance_number = $attendance[$attendee->ID];
-                            } else {
-                                $attendance_class = 'text-danger';
-                                $attendance_number = 0;
-                            }
-                            ?>
-                            <div class="col-md-4">
-                                <p class="<?php echo $attendance_class; ?>">
-                                    <a href="<?php echo $attendee->guid; ?>" style="color:#999; border-bottom:1px dotted #999;">
-                                        <strong><?php echo $attendee->post_title; ?></strong>
-                                    </a>
-                                    - <?php echo $attendance_number; ?>
-                                </p>
-                            </div>
-                        <?php endforeach; ?>
-                    <?php endif; ?>
-                </div>
+                <?php
+                if (!is_user_logged_in()) :
+                    get_template_part('youth-directory/login-override');
+                else :
+                    foreach ($classifications as $classification => $users) : ?>
+                        <div class="row" style="padding:10px;">
+                            <h3 style="border-bottom:1px solid #999; margin-bottom:15px;"><?php echo $classification; ?></h3>
+                            <?php foreach ($users as $user) :
+
+                                if (isset($attendance[$user['id']])) {
+                                    $attendance_class = '';
+                                    $attendance_number = $attendance[$user['id']];
+                                } else {
+                                    $attendance_class = 'text-danger';
+                                    $attendance_number = 0;
+                                }
+
+                                ?>
+                                <div class="col-md-3">
+                                    <p class="<?php echo $attendance_class; ?>" style="font-size:1.25em;">
+                                        <a href="<?php echo $user['link']; ?>" style="color:#999; text-decoration: underline;">
+                                            <?php echo $user['title']; ?>
+                                        </a> - <?php echo $attendance_number; ?>
+                                    </p>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </article>
         </div>
     </div>
