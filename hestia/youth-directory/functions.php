@@ -127,6 +127,17 @@ function get_youth_directory_classifications()
     return $classifications;
 }
 
+/**
+ * Counts the number of 'Male' or 'Female' students exist within that key of the array.
+ * Helper function to de-clutter the big event display.
+ *
+ * @param array $array
+ *            Array of of students with keys 'Male' and 'Female'
+ * @param string $gender
+ *            'Male' or 'Female'
+ *
+ * @return int
+ */
 function count_by_gender($array, $gender)
 {
     if (isset($array[$gender]) && is_array($array[$gender])) {
@@ -135,6 +146,14 @@ function count_by_gender($array, $gender)
     return 0;
 }
 
+/**
+ * Builds the top of a HTML table.
+ *
+ * @param array $array
+ *            The keys to be added to the table head.
+ *
+ * @return string HTML output.
+ */
 function youth_build_table_head($array)
 {
     $sHTML = '<table><thead><tr>';
@@ -145,11 +164,27 @@ function youth_build_table_head($array)
     return $sHTML;
 }
 
+/**
+ * Builds the bottom of a HTML table.
+ *
+ * @return string HTML output.
+ */
 function youth_build_table_end()
 {
     return '</tbody></table>';
 }
 
+/**
+ * Check if the ACF value is set and not false.
+ * Optional parameter to see if the value is set to 'None' or 'NA', etc.
+ *
+ * @param string|bool|int $check
+ *            Value to check to see if ACF field is set.
+ * @param string|bool $optional_check
+ *            Optional second value to check if ACF field does not match.
+ *
+ * @return bool
+ */
 function youth_has_value($check, $optional_check = false)
 {
     if (isset($check) && $check != false) {
@@ -164,6 +199,14 @@ function youth_has_value($check, $optional_check = false)
     return false;
 }
 
+/**
+ * Simple function to display alert box with custom text.
+ *
+ * @param string $text
+ *            Text to be displayed in the alert box.
+ *
+ * @return string
+ */
 function youth_alert($text)
 {
     $html = '<br/><div class="row">';
