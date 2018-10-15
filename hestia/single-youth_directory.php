@@ -198,6 +198,18 @@ $last_month_attendance = get_youth_directory_attendance(get_the_ID());
                                         <?php endif; ?>
                                     <?php endif; ?>
                                 </div>
+
+                                <h3>Important Notes</h3>
+                                <?php while (have_rows('youth_member_notes')) : ?>
+                                <?php the_row(); ?>
+                                    <div class="row" style="margin-bottom:15px;">
+                                        <div class="col-md-12" style="padding:15px;border:1px solid lightgray;">
+                                            <p style="margin-bottom:5px;"><strong><?php the_sub_field('youth_note_date'); ?></strong></p>
+                                            <p><?php the_sub_field('youth_note_note'); ?></p>
+                                        </div>
+                                    </div>
+                                <?php endwhile; ?>
+
                         </article>
                         <?php
                     endwhile;
