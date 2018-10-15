@@ -126,3 +126,48 @@ function get_youth_directory_classifications()
     }
     return $classifications;
 }
+
+function count_by_gender($array, $gender)
+{
+    if (isset($array[$gender]) && is_array($array[$gender])) {
+        return count($array[$gender]);
+    }
+    return 0;
+}
+
+function youth_build_table_head($array)
+{
+    $sHTML = '<table><thead><tr>';
+    foreach ($array as $heading) {
+        $sHTML .= '<th>' . $heading . '</th>';
+    }
+    $sHTML .= '</tr></thead><tbody>';
+    return $sHTML;
+}
+
+function youth_build_table_end()
+{
+    return '</tbody></table>';
+}
+
+function youth_has_value($check, $optional_check = false)
+{
+    if (isset($check) && $check != false) {
+        if ($optional_check !== false) {
+            if ($optional_check != $check) {
+                return true;
+            }
+            return false;
+        }
+        return true;
+    }
+    return false;
+}
+
+function youth_alert($text)
+{
+    $html = '<br/><div class="row">';
+    $html .= '<div class="col-md-12 bg-danger"><p><strong>Oh snap!</strong> ' . $text . '</p></div>';
+    $html .= '</div>';
+    return $html;
+}
