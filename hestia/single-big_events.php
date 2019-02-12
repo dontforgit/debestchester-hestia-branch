@@ -50,6 +50,7 @@ $breakdown = array(
 
                         // Display what is important about the event.
                         the_post();
+                        the_content();
 
                         // This is probably where we need to check to see if the user is logged in.
                         if (is_user_logged_in()) :

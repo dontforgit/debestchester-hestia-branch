@@ -35,7 +35,7 @@ function get_youth_directory_attendance($user_id, $months_in_the_past = 1)
 {
     global $wpdb;
     $date = date('Y-m-d', strtotime('-' . $months_in_the_past . 'months'));
-    $sql = "SELECT * FROM wp_attendance WHERE attend_id = {$user_id} AND attend_date > {$date}";
+    $sql = "SELECT * FROM wp_attendance WHERE attend_id = {$user_id} AND attend_date > '{$date}'";
     $attendance_results = $wpdb->get_results($sql);
 
     $results = array(
