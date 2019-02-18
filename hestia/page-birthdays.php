@@ -1,6 +1,7 @@
 <?php
 // Include Youth Directory functions file
 require_once dirname(__FILE__ ) . '/youth-directory/functions.php';
+require_once dirname(__FILE__ ) . '/youth-directory/eventAttendance.php';
 
 $this_month = date('m');
 $this_year = date('Y');
